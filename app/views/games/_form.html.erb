@@ -1,0 +1,24 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %> <%= f.text_field :title %><br>
+    <%= f.label :port_start %> <%= f.number_field :port_start %><br>
+    <%= f.label :port_end %> <%= f.number_field :port_end %><br>
+    <%= f.select(:protocol, :Protocol => ['TCP', 'UDP', 'Both']) %><br>
+  </div>
+<BR>
+  <div class="actions">
+    <%= f.submit 'Add a Port'%>
+  </div>
+<% end %>
