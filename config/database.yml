@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: ports_development
+
+test:
+  <<: *default
+  database: ports_test
+
+production:
+  <<: *default
+  database: ports_production
+  username: ports
+  password: <%= ENV['PORTS_DATABASE_PASSWORD'] %>
