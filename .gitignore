@@ -10,3 +10,5 @@ log/development.log
 *.log
 
 *.pid
+
+*.cache

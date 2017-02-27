@@ -1,10 +1,9 @@
-<h1>Ports</h1>
-<%= link_to 'Game List', games_path, class: "btn btn-default btn-xs"   %>
-<BR>
-<%= link_to 'Tools', tools_path, class: "btn btn-default btn-xs"   %>
+<%= render 'shared/header' %>
 
-<h1>Add a new Port</h1>
+<h1>Add a new Game</h1>
 
 <%= render 'form' %>
 <BR>
 <%= link_to 'Back', games_path, class: "btn btn-default btn-xs" %>
+
+<%= render 'shared/donate' %>

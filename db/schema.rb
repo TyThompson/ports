@@ -16,14 +16,20 @@ ActiveRecord::Schema.define(version: 0) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "user_id"
-    t.text     "title"
-    t.integer  "port_start"
-    t.integer "port_end"
-    t.text     "protocol"
+    t.text     "title",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "ports", force: :cascade do |t|
+    t.integer  "game_id",  null: false
+    t.integer  "port_start",  null: false
+    t.integer  "port_end",  null: false
+    t.text     "protocol",  null: false
+    t.text     "system",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 
 end

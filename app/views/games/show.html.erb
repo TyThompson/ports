@@ -1,0 +1,38 @@
+<%= render 'shared/header' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @game.title %> |
+</p>
+<p>
+<%= link_to 'Edit', edit_game_path(@game), class: "btn btn-default btn-xs" %> |
+<%= link_to 'Game List', games_path, class: "btn btn-default btn-xs" %>
+<p>
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Start Port</th>
+        <th>End Port</th>
+        <th>Created by</th>
+        <th>Created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @game.ports.each do |port| %>
+        <tr>
+          <td>'Start Port'</td>
+          <td>'End Port'</td>
+          <td>'Created by maybe'</td>
+          <td>'Created on'</td>
+          <% if policy(subject).update? %>
+          <td><%= link_to 'Edit', edit_port_path(port), class: "btn btn-default btn-xs"  %></td>
+          <td><%= link_to 'Destroy', port, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs"  %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
+  <%= link_to 'New', new_game_port_path(game_id: @game.id), class: "btn btn-default btn-xs" %>

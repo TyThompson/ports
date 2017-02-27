@@ -24,7 +24,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to @game, notice: 'Port was created.'
+      redirect_to @game, notice: 'Game was added.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   def update
     if @game.update(game_params)
-      redirect_to @game, notice: 'Port was updated.'
+      redirect_to @game, notice: 'Game was updated.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   def destroy
     @game.destroy
-    redirect_to games_url, notice: 'Port was deleted.'
+    redirect_to games_url, notice: 'Game was removed.'
   end
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -51,6 +51,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game)
+    params.require(:game).permit(:title)
   end
 end
